@@ -6,6 +6,6 @@ app.include_router(task.router)
 app.include_router(done.router)
 
 
-@app.get("/hello")
+@app.get("/hello", tags=["FastAPI学習"])
 async def hello():
     return {"message": "hello world!"}
