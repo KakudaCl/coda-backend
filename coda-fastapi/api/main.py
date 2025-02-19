@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from api.routers import done, pdf_edit, task
+from api.routers import done, pdf_edit, task, user_account
 
 app = FastAPI()
 
@@ -16,6 +16,7 @@ app.add_middleware(
 app.include_router(task.router)
 app.include_router(done.router)
 app.include_router(pdf_edit.router)
+app.include_router(user_account.router)
 
 
 @app.get("/hello", tags=["FastAPI学習"])
