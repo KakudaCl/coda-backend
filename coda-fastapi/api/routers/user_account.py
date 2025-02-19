@@ -17,8 +17,8 @@ async def create_user(account_info: UserAccountInfo, db: Session = Depends(get_d
 
 
 @router.post(
-    "user_accounts/check",
+    "/user_accounts/check",
     tags=["ユーザー"]
 )
 async def check_user(account_info: UserAccountInfo, db: Session = Depends(get_db)):
-    return
+    return user_account_crud.check_user_account(db, account_info)
