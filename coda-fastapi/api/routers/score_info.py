@@ -14,3 +14,19 @@ router = APIRouter()
 )
 async def create_score(score_info: ScoreInfo, db: Session = Depends(get_db)):
     return score_info_crud.create_score_info(db, score_info)
+
+
+@router.get(
+    "/scores/{user_account_id}",
+    tags=["譜面"]
+)
+async def list_score_with_user_id(user_account_id: int, db: Session = Depends(get_db)):
+    return score_info_crud.list_score_info(db, user_account_id)
+
+
+@router.delete(
+    "/scores",
+    tags=["譜面"]
+)
+async def delete_score(score_info: ScoreInfo, db: Session = Depends(get_db)):
+    return score_info_crud.delete_score_info(db, score_info)
